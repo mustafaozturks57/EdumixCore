@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="168a3d59a0724276ac98cf078c8a921b" Name="Diagram1">
+        <EntityTypeShape EntityType="KURSDBModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Apply" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.ApplyBaşvuru" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.ApplyCOUNT" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.ApplyDurum" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Bran" Width="1.5" PointX="8.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Der" Width="1.5" PointX="5.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.DersProgram" Width="1.5" PointX="11" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Dönemler" Width="1.5" PointX="5.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.EKurum" Width="1.5" PointX="8.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.FizikselYer" Width="1.5" PointX="13.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Görüsler" Width="1.5" PointX="15.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Grup" Width="1.5" PointX="8.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Günler" Width="1.5" PointX="16.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.IL" Width="1.5" PointX="3" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.ILCE" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.İstenilenEvraklar" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Kampu" Width="1.5" PointX="11" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.KursTür" Width="1.5" PointX="11.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Notlar" Width="1.5" PointX="0.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Ögrenci" Width="1.5" PointX="14" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Okul" Width="1.5" PointX="13.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Organızasyon" Width="1.5" PointX="2.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Program" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Randevu" Width="1.5" PointX="18" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.RandevuTürü" Width="1.5" PointX="15.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Referan" Width="1.5" PointX="11.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.s_user" Width="1.5" PointX="16.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Sezon" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Sınıf" Width="1.5" PointX="16.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Subeler" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.ULKE" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.ViewDersProgram" Width="1.5" PointX="9.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.YüklüEvraklar" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.Departman" Width="1.5" PointX="4.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.DersProgramHaftalık" Width="1.5" PointX="11.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.DersProgramMVC" Width="1.5" PointX="13.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="KURSDBModel.ProgramView" Width="1.5" PointX="17.75" PointY="16" IsExpanded="true" />
+        <AssociationConnector Association="KURSDBModel.FK_Apply_ApplyDurum" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Apply_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Apply_ULKE" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_ApplyBaşvuru_ApplyDurum" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_ApplyBaşvuru_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_ApplyBaşvuru_ULKE" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_ApplyCOUNT_ApplyDurum" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_ApplyCOUNT_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_ApplyCOUNT_ULKE" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_DersProgram_Grup" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Kampus_EKurum" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_FizikselYer_Kampus" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Ögrenci_Seviye" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_IL_ULKE" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_ILCE_IL" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_İstenilenEvraklar_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_YüklüEvraklar_İstenilenEvraklar" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Okul_Kampus" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Ögrenci_KursTür" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Ögrenci_Referans" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Randevu_RandevuTürü1" ManuallyRouted="false" />
+        <AssociationConnector Association="KURSDBModel.FK_Sezon_Subeler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

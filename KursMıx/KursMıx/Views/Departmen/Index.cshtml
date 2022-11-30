@@ -1,0 +1,46 @@
+﻿@model IEnumerable<KursMıx.Models.Departman>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmanCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmanLevel)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmanName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmanCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmanLevel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

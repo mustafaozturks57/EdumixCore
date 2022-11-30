@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KURSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Apply">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uname" Type="varchar" MaxLength="100" />
+    <Property Name="lastname" Type="varchar" MaxLength="100" />
+    <Property Name="utel" Type="varchar" MaxLength="100" />
+    <Property Name="umaıl" Type="varchar" MaxLength="100" />
+    <Property Name="uulke" Type="int" />
+    <Property Name="uprogram" Type="int" />
+    <Property Name="uacıklama" Type="varchar" MaxLength="500" />
+    <Property Name="DurumID" Type="int" />
+    <Property Name="mas_crdate" Type="datetime" />
+    <Property Name="SISKODU" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ApplyBaşvuru">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uprogram" Type="int" />
+    <Property Name="AdName" Type="varchar" MaxLength="100" />
+    <Property Name="uacıklama" Type="varchar" MaxLength="500" />
+    <Property Name="DurumID" Type="int" />
+    <Property Name="utel" Type="varchar" MaxLength="100" />
+    <Property Name="uulke" Type="int" />
+    <Property Name="mas_crdate" Type="datetime" />
+    <Property Name="umaıl" Type="varchar" MaxLength="100" />
+    <Property Name="SISKODU" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ApplyCOUNT">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uprogram" Type="int" />
+    <Property Name="AdName" Type="varchar" MaxLength="100" />
+    <Property Name="uacıklama" Type="varchar" MaxLength="500" />
+    <Property Name="ApplyID" Type="int" />
+    <Property Name="DurumID" Type="int" />
+    <Property Name="utel" Type="varchar" MaxLength="100" />
+    <Property Name="uulke" Type="int" />
+    <Property Name="mas_crdate" Type="datetime" />
+    <Property Name="SISKODU" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ApplyDurum">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KabulDurum" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Brans">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BransAdı" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KURSDB.dbo.Departman' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Departman">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmanName" Type="varchar" MaxLength="50" />
+    <Property Name="DepartmanCode" Type="varchar" MaxLength="50" />
+    <Property Name="DepartmanLevel" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DersAdı" Type="varchar" MaxLength="50" />
+    <Property Name="DersSeviye" Type="int" />
+  </EntityType>
+  <EntityType Name="DersProgram">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DersID" Type="int" />
+    <Property Name="SınıfID" Type="int" />
+    <Property Name="ÖgrenciGrupID" Type="int" />
+    <Property Name="GünlükDersSayısı" Type="varchar" MaxLength="50" />
+    <Property Name="GünlerID" Type="int" />
+  </EntityType>
+  <EntityType Name="Dönemler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DönemAdı" Type="varchar" MaxLength="50" />
+    <Property Name="DönemBTarıh" Type="date" />
+    <Property Name="DönemETarıh" Type="date" />
+  </EntityType>
+  <EntityType Name="EKurum">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KurumName" Type="varchar" MaxLength="100" />
+    <Property Name="KurumTarihi" Type="datetime" />
+    <Property Name="Telefon" Type="varchar" MaxLength="50" />
+    <Property Name="Faks" Type="varchar" MaxLength="50" />
+    <Property Name="Adres" Type="varchar" MaxLength="500" />
+    <Property Name="IL" Type="int" />
+    <Property Name="ILCE" Type="int" />
+    <Property Name="Semt" Type="int" />
+    <Property Name="EPosta" Type="varchar" MaxLength="100" />
+    <Property Name="EWeb" Type="varchar" MaxLength="100" />
+    <Property Name="VDAIRE" Type="varchar" MaxLength="50" />
+    <Property Name="CVERGINO" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FizikselYer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BaglıYer" Type="int" />
+    <Property Name="BaglıKampus" Type="int" />
+    <Property Name="YerAdı" Type="varchar" MaxLength="100" />
+    <Property Name="YerTipi" Type="int" />
+    <Property Name="Kapasite" Type="int" />
+  </EntityType>
+  <EntityType Name="Görüsler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Görüs" Type="varchar" MaxLength="500" />
+    <Property Name="OlusturanKisi" Type="int" />
+    <Property Name="mas_crdate" Type="datetime" />
+    <Property Name="SISKODU" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Grup">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeviyeAdı" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Günler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GunAdı" Type="varchar" MaxLength="50" />
+    <Property Name="GunSıraNo" Type="int" />
+  </EntityType>
+  <EntityType Name="IL">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IlName" Type="varchar" MaxLength="100" />
+    <Property Name="UlkeID" Type="int" />
+  </EntityType>
+  <EntityType Name="ILCE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IlceName" Type="varchar" MaxLength="100" />
+    <Property Name="ILID" Type="int" />
+  </EntityType>
+  <EntityType Name="İstenilenEvraklar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="evrakadı" Type="varchar" MaxLength="100" />
+    <Property Name="ProgramID" Type="int" />
+  </EntityType>
+  <EntityType Name="Kampus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YerleskName" Type="varchar" MaxLength="100" />
+    <Property Name="YerleskeShortName" Type="varchar" MaxLength="50" />
+    <Property Name="Lokasyon" Type="varchar" MaxLength="50" />
+    <Property Name="Kurulus" Type="datetime" />
+    <Property Name="KurumID" Type="int" />
+  </EntityType>
+  <EntityType Name="KursTür">
+    <Key>
+      <PropertyRef Name="kıd" />
+    </Key>
+    <Property Name="kıd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KursAdı" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Notlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Not" Type="varchar" MaxLength="500" />
+    <Property Name="OluşturanKişi" Type="int" />
+    <Property Name="mas_crdate" Type="datetime" />
+    <Property Name="SISKODU" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ögrenci">
+    <Key>
+      <PropertyRef Name="OgrID" />
+    </Key>
+    <Property Name="OgrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeviyeID" Type="int" />
+    <Property Name="Ad" Type="varchar" MaxLength="100" />
+    <Property Name="Soyad" Type="varchar" MaxLength="100" />
+    <Property Name="KursID" Type="int" />
+    <Property Name="TC" Type="nchar" MaxLength="11" />
+    <Property Name="Cinsiyet" Type="varchar" MaxLength="50" />
+    <Property Name="CepTel" Type="varchar" MaxLength="50" />
+    <Property Name="Veli" Type="varchar" MaxLength="50" />
+    <Property Name="DogumTarıhı" Type="varchar" MaxLength="50" />
+    <Property Name="DogumYerı" Type="varchar" MaxLength="50" />
+    <Property Name="Emaıl" Type="varchar" MaxLength="50" />
+    <Property Name="BabaAd" Type="varchar" MaxLength="50" />
+    <Property Name="BabaCep" Type="varchar" MaxLength="50" />
+    <Property Name="BabaMeslek" Type="varchar" MaxLength="50" />
+    <Property Name="AnneAd" Type="varchar" MaxLength="50" />
+    <Property Name="AnneCep" Type="varchar" MaxLength="50" />
+    <Property Name="AnneMeslek" Type="varchar" MaxLength="50" />
+    <Property Name="Adres" Type="varchar(max)" />
+    <Property Name="Okul" Type="varchar" MaxLength="50" />
+    <Property Name="ReferansID" Type="int" />
+    <Property Name="YüzdePay" Type="int" />
+  </EntityType>
+  <EntityType Name="Okul">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OkulTip" Type="int" />
+    <Property Name="OkulAdı" Type="varchar" MaxLength="100" />
+    <Property Name="YetkiliName" Type="varchar" MaxLength="100" />
+    <Property Name="YetkiliTel" Type="varchar" MaxLength="100" />
+    <Property Name="YetkiliMaıl" Type="varchar" MaxLength="100" />
+    <Property Name="KampusID" Type="int" />
+  </EntityType>
+  <EntityType Name="Organızasyon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgAdı" Type="varchar" MaxLength="50" />
+    <Property Name="OrgURL" Type="varchar" MaxLength="50" />
+    <Property Name="OrgILETISIM" Type="varchar" MaxLength="100" />
+    <Property Name="OrgMAIL" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramName" Type="varchar" MaxLength="100" />
+    <Property Name="ProgramCode" Type="nchar" MaxLength="10" />
+    <Property Name="Active_Fl" Type="bit" />
+    <Property Name="DepartmanID" Type="int" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="BaseID" />
+    </Key>
+    <Property Name="BaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BDate" Type="datetime" />
+    <Property Name="EDate" Type="datetime" />
+    <Property Name="Acıklama" Type="varchar" MaxLength="100" />
+    <Property Name="OluşturanID" Type="int" />
+    <Property Name="RandevuKısıID" Type="int" />
+    <Property Name="RandevuTürID" Type="int" />
+    <Property Name="mas_crdate" Type="datetime" />
+    <Property Name="Aktif_fl" Type="bit" />
+    <Property Name="SISKODU" Type="varchar" MaxLength="50" />
+    <Property Name="KISIID" Type="int" />
+  </EntityType>
+  <EntityType Name="RandevuTürü">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tür" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Referans">
+    <Key>
+      <PropertyRef Name="RID" />
+    </Key>
+    <Property Name="RID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReferansAdı" Type="varchar" MaxLength="50" />
+    <Property Name="ReferansSoyadı" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="s_user">
+    <Key>
+      <PropertyRef Name="SISKODU" />
+    </Key>
+    <Property Name="SISKODU" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KAD" Type="nvarchar(max)" />
+    <Property Name="KPASS" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Sezon">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SezonName" Type="varchar" MaxLength="100" />
+    <Property Name="SezonKodu" Type="varchar" MaxLength="50" />
+    <Property Name="PesınatOran" Type="int" />
+    <Property Name="MaxTaksit" Type="int" />
+    <Property Name="SezonBaslangıc" Type="date" />
+    <Property Name="SezonBitis" Type="date" />
+    <Property Name="Aktif" Type="bit" />
+    <Property Name="Gösterim" Type="bit" />
+    <Property Name="SubeID" Type="int" />
+  </EntityType>
+  <EntityType Name="Sınıf">
+    <Key>
+      <PropertyRef Name="S_id" />
+    </Key>
+    <Property Name="S_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SınıfAdı" Type="varchar" MaxLength="50" />
+    <Property Name="SınıfTürü" Type="varchar" MaxLength="50" />
+    <Property Name="SınıfSeviye" Type="int" />
+  </EntityType>
+  <EntityType Name="Subeler">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubeAdı" Type="varchar" MaxLength="100" />
+    <Property Name="SubeKODU" Type="varchar" MaxLength="50" />
+    <Property Name="SubeUNVAN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ULKE">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UlkeName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ViewDersProgram">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DersID" Type="int" />
+    <Property Name="SınıfID" Type="int" />
+    <Property Name="GünID" Type="int" />
+    <Property Name="BDate" Type="datetime" />
+    <Property Name="EDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="YüklüEvraklar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EvrakID" Type="int" />
+    <Property Name="EvrakURL" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KURSDB.dbo.DersProgramHaftalık' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DersProgramHaftalık">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SınıfID" Type="int" />
+    <Property Name="BaşlangıcZamanı" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Çalışma Saatleri" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Pazartesi" Type="varchar" MaxLength="50" />
+    <Property Name="Salı" Type="varchar" MaxLength="50" />
+    <Property Name="Carşamba" Type="varchar" MaxLength="50" />
+    <Property Name="Perşembe" Type="varchar" MaxLength="50" />
+    <Property Name="Cuma" Type="varchar" MaxLength="50" />
+    <Property Name="Cumartesi" Type="varchar" MaxLength="50" />
+    <Property Name="Pazar" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KURSDB.dbo.DersProgramMVC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DersProgramMVC">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SınıfID" Type="int" />
+    <Property Name="DERS" Type="varchar" MaxLength="50" />
+    <Property Name="SINIF" Type="varchar" MaxLength="50" />
+    <Property Name="Günler" Type="varchar" MaxLength="50" />
+    <Property Name="BaşlangıcZamanı" Type="nvarchar" MaxLength="4000" />
+    <Property Name="BitişZamanı" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'KURSDB.dbo.DersProgramMVCID' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DersProgramMVCID">
+          <Property Name="DersID" Type="int" />
+          <Property Name="GünID" Type="int" />
+          <Property Name="SınıfID" Type="int" />
+          <Property Name="BaşlangıcZamanı" Type="nvarchar" MaxLength="4000" />
+          <Property Name="BitişZamanı" Type="nvarchar" MaxLength="4000" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KURSDB.dbo.ProgramView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ProgramView">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Durumu" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="ProgramName" Type="varchar" MaxLength="100" />
+    <Property Name="ProgramCode" Type="nchar" MaxLength="10" />
+    <Property Name="DepartmanID" Type="int" />
+    <Property Name="DepartmanName" Type="varchar" MaxLength="50" />
+    <Property Name="Durumu" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Apply_ApplyDurum">
+    <End Role="ApplyDurum" Type="Self.ApplyDurum" Multiplicity="0..1" />
+    <End Role="Apply" Type="Self.Apply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplyDurum">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Apply">
+        <PropertyRef Name="DurumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apply_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+    <End Role="Apply" Type="Self.Apply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Apply">
+        <PropertyRef Name="uprogram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Apply_ULKE">
+    <End Role="ULKE" Type="Self.ULKE" Multiplicity="0..1" />
+    <End Role="Apply" Type="Self.Apply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ULKE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Apply">
+        <PropertyRef Name="uulke" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplyBaşvuru_ApplyDurum">
+    <End Role="ApplyDurum" Type="Self.ApplyDurum" Multiplicity="0..1" />
+    <End Role="ApplyBaşvuru" Type="Self.ApplyBaşvuru" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplyDurum">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ApplyBaşvuru">
+        <PropertyRef Name="DurumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplyBaşvuru_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+    <End Role="ApplyBaşvuru" Type="Self.ApplyBaşvuru" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApplyBaşvuru">
+        <PropertyRef Name="uprogram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplyBaşvuru_ULKE">
+    <End Role="ULKE" Type="Self.ULKE" Multiplicity="0..1" />
+    <End Role="ApplyBaşvuru" Type="Self.ApplyBaşvuru" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ULKE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ApplyBaşvuru">
+        <PropertyRef Name="uulke" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplyCOUNT_ApplyDurum">
+    <End Role="ApplyDurum" Type="Self.ApplyDurum" Multiplicity="0..1" />
+    <End Role="ApplyCOUNT" Type="Self.ApplyCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplyDurum">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ApplyCOUNT">
+        <PropertyRef Name="DurumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplyCOUNT_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+    <End Role="ApplyCOUNT" Type="Self.ApplyCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ApplyCOUNT">
+        <PropertyRef Name="uprogram" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ApplyCOUNT_ULKE">
+    <End Role="ULKE" Type="Self.ULKE" Multiplicity="0..1" />
+    <End Role="ApplyCOUNT" Type="Self.ApplyCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ULKE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ApplyCOUNT">
+        <PropertyRef Name="uulke" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DersProgram_Grup">
+    <End Role="Grup" Type="Self.Grup" Multiplicity="0..1" />
+    <End Role="DersProgram" Type="Self.DersProgram" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grup">
+        <PropertyRef Name="SID" />
+      </Principal>
+      <Dependent Role="DersProgram">
+        <PropertyRef Name="ÖgrenciGrupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FizikselYer_Kampus">
+    <End Role="Kampus" Type="Self.Kampus" Multiplicity="0..1" />
+    <End Role="FizikselYer" Type="Self.FizikselYer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kampus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="FizikselYer">
+        <PropertyRef Name="BaglıKampus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IL_ULKE">
+    <End Role="ULKE" Type="Self.ULKE" Multiplicity="0..1" />
+    <End Role="IL" Type="Self.IL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ULKE">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="IL">
+        <PropertyRef Name="UlkeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ILCE_IL">
+    <End Role="IL" Type="Self.IL" Multiplicity="0..1" />
+    <End Role="ILCE" Type="Self.ILCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IL">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ILCE">
+        <PropertyRef Name="ILID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_İstenilenEvraklar_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+    <End Role="İstenilenEvraklar" Type="Self.İstenilenEvraklar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="İstenilenEvraklar">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kampus_EKurum">
+    <End Role="EKurum" Type="Self.EKurum" Multiplicity="0..1" />
+    <End Role="Kampus" Type="Self.Kampus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EKurum">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Kampus">
+        <PropertyRef Name="KurumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ögrenci_KursTür">
+    <End Role="KursTür" Type="Self.KursTür" Multiplicity="0..1" />
+    <End Role="Ögrenci" Type="Self.Ögrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KursTür">
+        <PropertyRef Name="kıd" />
+      </Principal>
+      <Dependent Role="Ögrenci">
+        <PropertyRef Name="KursID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ögrenci_Referans">
+    <End Role="Referans" Type="Self.Referans" Multiplicity="0..1" />
+    <End Role="Ögrenci" Type="Self.Ögrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Referans">
+        <PropertyRef Name="RID" />
+      </Principal>
+      <Dependent Role="Ögrenci">
+        <PropertyRef Name="ReferansID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ögrenci_Seviye">
+    <End Role="Grup" Type="Self.Grup" Multiplicity="0..1" />
+    <End Role="Ögrenci" Type="Self.Ögrenci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grup">
+        <PropertyRef Name="SID" />
+      </Principal>
+      <Dependent Role="Ögrenci">
+        <PropertyRef Name="SeviyeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Okul_Kampus">
+    <End Role="Kampus" Type="Self.Kampus" Multiplicity="0..1" />
+    <End Role="Okul" Type="Self.Okul" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kampus">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Okul">
+        <PropertyRef Name="KampusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_RandevuTürü1">
+    <End Role="RandevuTürü" Type="Self.RandevuTürü" Multiplicity="0..1" />
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RandevuTürü">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="RandevuTürID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sezon_Subeler">
+    <End Role="Subeler" Type="Self.Subeler" Multiplicity="0..1" />
+    <End Role="Sezon" Type="Self.Sezon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subeler">
+        <PropertyRef Name="SID" />
+      </Principal>
+      <Dependent Role="Sezon">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YüklüEvraklar_İstenilenEvraklar">
+    <End Role="İstenilenEvraklar" Type="Self.İstenilenEvraklar" Multiplicity="0..1" />
+    <End Role="YüklüEvraklar" Type="Self.YüklüEvraklar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="İstenilenEvraklar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="YüklüEvraklar">
+        <PropertyRef Name="EvrakID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="btest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TableRender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tablename" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="KURSDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Apply" EntityType="Self.Apply" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApplyBaşvuru" EntityType="Self.ApplyBaşvuru" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApplyCOUNT" EntityType="Self.ApplyCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApplyDurum" EntityType="Self.ApplyDurum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Brans" EntityType="Self.Brans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ders" EntityType="Self.Ders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DersProgram" EntityType="Self.DersProgram" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dönemler" EntityType="Self.Dönemler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EKurum" EntityType="Self.EKurum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FizikselYer" EntityType="Self.FizikselYer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Görüsler" EntityType="Self.Görüsler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grup" EntityType="Self.Grup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Günler" EntityType="Self.Günler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IL" EntityType="Self.IL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ILCE" EntityType="Self.ILCE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="İstenilenEvraklar" EntityType="Self.İstenilenEvraklar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kampus" EntityType="Self.Kampus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KursTür" EntityType="Self.KursTür" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notlar" EntityType="Self.Notlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ögrenci" EntityType="Self.Ögrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Okul" EntityType="Self.Okul" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organızasyon" EntityType="Self.Organızasyon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RandevuTürü" EntityType="Self.RandevuTürü" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Referans" EntityType="Self.Referans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="s_user" EntityType="Self.s_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sezon" EntityType="Self.Sezon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sınıf" EntityType="Self.Sınıf" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subeler" EntityType="Self.Subeler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ULKE" EntityType="Self.ULKE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewDersProgram" EntityType="Self.ViewDersProgram" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YüklüEvraklar" EntityType="Self.YüklüEvraklar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departman" EntityType="Self.Departman" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Departman].[id] AS [id], 
+    [Departman].[DepartmanName] AS [DepartmanName], 
+    [Departman].[DepartmanCode] AS [DepartmanCode], 
+    [Departman].[DepartmanLevel] AS [DepartmanLevel]
+    FROM [dbo].[Departman] AS [Departman]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DersProgramHaftalık" EntityType="Self.DersProgramHaftalık" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DersProgramHaftalık].[id] AS [id], 
+    [DersProgramHaftalık].[SınıfID] AS [SınıfID], 
+    [DersProgramHaftalık].[BaşlangıcZamanı] AS [BaşlangıcZamanı], 
+    [DersProgramHaftalık].[Çalışma Saatleri] AS [Çalışma Saatleri], 
+    [DersProgramHaftalık].[Pazartesi] AS [Pazartesi], 
+    [DersProgramHaftalık].[Salı] AS [Salı], 
+    [DersProgramHaftalık].[Carşamba] AS [Carşamba], 
+    [DersProgramHaftalık].[Perşembe] AS [Perşembe], 
+    [DersProgramHaftalık].[Cuma] AS [Cuma], 
+    [DersProgramHaftalık].[Cumartesi] AS [Cumartesi], 
+    [DersProgramHaftalık].[Pazar] AS [Pazar]
+    FROM [dbo].[DersProgramHaftalık] AS [DersProgramHaftalık]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DersProgramMVC" EntityType="Self.DersProgramMVC" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DersProgramMVC].[id] AS [id], 
+    [DersProgramMVC].[SınıfID] AS [SınıfID], 
+    [DersProgramMVC].[DERS] AS [DERS], 
+    [DersProgramMVC].[SINIF] AS [SINIF], 
+    [DersProgramMVC].[Günler] AS [Günler], 
+    [DersProgramMVC].[BaşlangıcZamanı] AS [BaşlangıcZamanı], 
+    [DersProgramMVC].[BitişZamanı] AS [BitişZamanı]
+    FROM [dbo].[DersProgramMVC] AS [DersProgramMVC]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ProgramView" EntityType="Self.ProgramView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ProgramView].[id] AS [id], 
+    [ProgramView].[ProgramName] AS [ProgramName], 
+    [ProgramView].[ProgramCode] AS [ProgramCode], 
+    [ProgramView].[DepartmanID] AS [DepartmanID], 
+    [ProgramView].[DepartmanName] AS [DepartmanName], 
+    [ProgramView].[Durumu] AS [Durumu]
+    FROM [dbo].[ProgramView] AS [ProgramView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Apply_ApplyDurum" Association="Self.FK_Apply_ApplyDurum">
+      <End Role="ApplyDurum" EntitySet="ApplyDurum" />
+      <End Role="Apply" EntitySet="Apply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apply_Program" Association="Self.FK_Apply_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Apply" EntitySet="Apply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Apply_ULKE" Association="Self.FK_Apply_ULKE">
+      <End Role="ULKE" EntitySet="ULKE" />
+      <End Role="Apply" EntitySet="Apply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplyBaşvuru_ApplyDurum" Association="Self.FK_ApplyBaşvuru_ApplyDurum">
+      <End Role="ApplyDurum" EntitySet="ApplyDurum" />
+      <End Role="ApplyBaşvuru" EntitySet="ApplyBaşvuru" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplyBaşvuru_Program" Association="Self.FK_ApplyBaşvuru_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="ApplyBaşvuru" EntitySet="ApplyBaşvuru" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplyBaşvuru_ULKE" Association="Self.FK_ApplyBaşvuru_ULKE">
+      <End Role="ULKE" EntitySet="ULKE" />
+      <End Role="ApplyBaşvuru" EntitySet="ApplyBaşvuru" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplyCOUNT_ApplyDurum" Association="Self.FK_ApplyCOUNT_ApplyDurum">
+      <End Role="ApplyDurum" EntitySet="ApplyDurum" />
+      <End Role="ApplyCOUNT" EntitySet="ApplyCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplyCOUNT_Program" Association="Self.FK_ApplyCOUNT_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="ApplyCOUNT" EntitySet="ApplyCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ApplyCOUNT_ULKE" Association="Self.FK_ApplyCOUNT_ULKE">
+      <End Role="ULKE" EntitySet="ULKE" />
+      <End Role="ApplyCOUNT" EntitySet="ApplyCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DersProgram_Grup" Association="Self.FK_DersProgram_Grup">
+      <End Role="Grup" EntitySet="Grup" />
+      <End Role="DersProgram" EntitySet="DersProgram" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FizikselYer_Kampus" Association="Self.FK_FizikselYer_Kampus">
+      <End Role="Kampus" EntitySet="Kampus" />
+      <End Role="FizikselYer" EntitySet="FizikselYer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IL_ULKE" Association="Self.FK_IL_ULKE">
+      <End Role="ULKE" EntitySet="ULKE" />
+      <End Role="IL" EntitySet="IL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ILCE_IL" Association="Self.FK_ILCE_IL">
+      <End Role="IL" EntitySet="IL" />
+      <End Role="ILCE" EntitySet="ILCE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_İstenilenEvraklar_Program" Association="Self.FK_İstenilenEvraklar_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="İstenilenEvraklar" EntitySet="İstenilenEvraklar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kampus_EKurum" Association="Self.FK_Kampus_EKurum">
+      <End Role="EKurum" EntitySet="EKurum" />
+      <End Role="Kampus" EntitySet="Kampus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ögrenci_KursTür" Association="Self.FK_Ögrenci_KursTür">
+      <End Role="KursTür" EntitySet="KursTür" />
+      <End Role="Ögrenci" EntitySet="Ögrenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ögrenci_Referans" Association="Self.FK_Ögrenci_Referans">
+      <End Role="Referans" EntitySet="Referans" />
+      <End Role="Ögrenci" EntitySet="Ögrenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ögrenci_Seviye" Association="Self.FK_Ögrenci_Seviye">
+      <End Role="Grup" EntitySet="Grup" />
+      <End Role="Ögrenci" EntitySet="Ögrenci" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Okul_Kampus" Association="Self.FK_Okul_Kampus">
+      <End Role="Kampus" EntitySet="Kampus" />
+      <End Role="Okul" EntitySet="Okul" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_RandevuTürü1" Association="Self.FK_Randevu_RandevuTürü1">
+      <End Role="RandevuTürü" EntitySet="RandevuTürü" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sezon_Subeler" Association="Self.FK_Sezon_Subeler">
+      <End Role="Subeler" EntitySet="Subeler" />
+      <End Role="Sezon" EntitySet="Sezon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YüklüEvraklar_İstenilenEvraklar" Association="Self.FK_YüklüEvraklar_İstenilenEvraklar">
+      <End Role="İstenilenEvraklar" EntitySet="İstenilenEvraklar" />
+      <End Role="YüklüEvraklar" EntitySet="YüklüEvraklar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
